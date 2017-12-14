@@ -1,0 +1,35 @@
+#Sculptor created the following 33 files
+#Fri Aug 19 16:05:55 CST 2016
+src/generated/resources/generated-spring.properties=34497b0acda1fddeada5859707dc0721
+src/generated/java/cn/com/mymodule/domain/ProjectGroup.java=f9265485385d7f3076daba9df1e45260
+src/test/generated/resources/applicationContext-test.xml=b0377f37b5bd3c6a12bad90b226d1303
+src/test/resources/spring-test.properties=b630de33662844f11c811c9d9f08dd49
+src/generated/resources/Interceptor.xml=b511b04c8074c3ae9a8b6f4284ae8d27
+src/generated/java/cn/com/mymodule/serviceapi/ProjectGroupService.java=66766a7f98a0ecf380e3612e1fdc3364
+src/main/resources/ehcache.xml=e12308d93a38e0927b54a1f119f38774
+src/generated/resources/EntityManagerFactory.xml=4c48548deeb9e68705afae789edb3eb0
+src/main/java/cn/com/mymodule/repositoryimpl/ProjectGroupRepositoryImpl.java=809045b62a9dd04abffe22555ec502ef
+src/test/generated/java/cn/com/mymodule/serviceapi/ProjectGroupServiceTestBase.java=e8bc05f36520ff2b7dd61585a186c017
+src/generated/resources/pub-sub.xml=20f31012dbc564ec6d63e4c226fa09e2
+src/test/resources/logback-test.xml=207b22a36273eaff702ff3f24997d399
+src/generated/java/cn/com/mymodule/domain/ProjectGroupProperties.java=3ec77614b3b94bf6a3be8d9d9b0aa3a0
+src/test/resources/more-test.xml=16be669c5759ddfbeeb2cb72e8dc3662
+src/generated/resources/beanRefContext.xml=1132ec66194efcbcc9b2c1a8f951affa
+src/generated/resources/applicationContext.xml=edb2e68b4c65572ca6f9c1504fd72321
+src/main/resources/more.xml=c397f379d4a9f7e62db909bf19878183
+src/generated/java/cn/com/mymodule/domain/ProjectGroupBuilder.java=0e548f0fe321cd653794bed3d2c33667
+src/generated/java/cn/com/mymodule/serviceimpl/ProjectGroupServiceImplBase.java=11cf42f015672d92829f9b95055ba324
+src/main/resources/spring.properties=d41d8cd98f00b204e9800998ecf8427e
+src/generated/resources/META-INF/persistence.xml=a663145310b584b255e1a173272c7c88
+src/main/java/cn/com/mymodule/serviceimpl/ProjectGroupServiceImpl.java=0bbbedb44e973b8dfc16dd774ef99b93
+src/test/resources/ehcache.xml=793ff77782ce72cfecd7cf2eea99838d
+src/test/java/cn/com/mymodule/serviceapi/ProjectGroupServiceTest.java=dcbcf70efa1f7953e744b2cded543d88
+src/test/generated/resources/EntityManagerFactory-test.xml=96acf27ed8dfcadc871e5945336d7aae
+src/generated/java/cn/com/mymodule/domain/ProjectGroupRepository.java=774b236655f1a782cadb3c4d32132fe6
+src/test/generated/resources/dbunit/EmptyDatabase.xml=169f962b80b68d1b85e59162636c8fc6
+src/main/resources/logback.xml=fb9670b146f0b65352745e97507ab7ee
+src/test/generated/resources/Interceptor-test.xml=b1583e5b4948a21e9220836da5aa7f70
+src/test/generated/resources/META-INF/persistence-test.xml=916c5bd993a79e8c17d282e4d00c0a2e
+src/generated/java/cn/com/mymodule/repositoryimpl/ProjectGroupRepositoryBase.java=e72d1d3346d09f06311b0dd2b86b913f
+src/generated/java/cn/com/mymodule/exception/ProjectGroupNotFoundException.java=7ee63fdb7f50d75c9c2885e32d8eddc3
+src/test/resources/dbunit/ProjectGroupServiceTest.xml=169f962b80b68d1b85e59162636c8fc6

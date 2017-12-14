@@ -1,0 +1,109 @@
+Application MyApp {
+    basePackage=cn.com
+
+    Module mymodule {
+    	
+    	
+    	Entity Download{
+    		scaffold
+    		!optimisticLocking
+    		!auditable
+    		Long id key;
+    		String tokens nullable;
+    		Integer num;
+    		String startTime;
+    		String endTime;
+    		Repository DownloadRepository{
+				findByCondition;
+				@Download findByTokens(String tokens) query="from Download where tokens=:tokens";
+    		}
+    	}
+    	
+    	Service DownloadService{
+    		cn.com.mymodule.domin.Page<@Download> findListByPage(int pageindex,int pagesize);
+    		findByTokens=>DownloadRepository.findByTokens;
+		}
+    	
+    	Entity DownloadLog{
+    		scaffold
+    		!optimisticLocking
+    		!auditable
+    		Long id key;
+    		String tokens nullable;
+    		String times;
+    		String sorceNum;
+    		Repository DownloadLogRepository{
+				findByCondition;
+				List<@DownloadLog> findByTokens(String tokens) query="from DownloadLog where tokens=:tokens";
+				@DownloadLog findByTAndS(String tokens,String sorceNum) query="from DownloadLog where tokens=:tokens and sorceNum=:sorceNum";
+    		}
+    	}
+    	Service DownloadLogService{
+    		cn.com.mymodule.domin.Page<@Download> findListByPage(int pageindex,int pagesize);
+    		findByTokens=>DownloadLogRepository.findByTokens;
+    		findByTAndS=>DownloadLogRepository.findByTAndS;
+		}
+    	
+    	Entity ParseContent{
+    		scaffold
+    		!optimisticLocking
+    		!auditable
+    		Long id key;
+    		String resNum nullable;//资源号
+    		String urls nullable;//资源链接
+    		String title nullable;//资源标题
+    		String fileName nullable;//资源名
+    		String uptime nullable;//资源上传日期
+    		String fsize nullable;//资源大小
+    		String contents nullable;//资源描述
+    		Repository ParseContentRepository{
+				findByCondition;
+				List<@ParseContent> findByResNum(String resNum) query="from ParseContent where resNum=:resNum";
+				List<@ParseContent> findByNull() query="from ParseContent where fileName is null";
+    		}
+    	}
+    	Service ParseContentService{
+    		parseF(String urls,String fileName);
+    		Map<String,String> logins();
+    		List<String> getVipList(Map<String,String> cook,int i);
+    		boolean checkUrls(String resNum,String fileName);
+    		longUrls(String longUrl);
+    		findByResNum=>ParseContentRepository.findByResNum;
+    		findByNull=>ParseContentRepository.findByNull;
+    		getAllHrefs();
+		}
+		
+		
+		
+		Service AuthordService{
+    		net.sf.json.JSONObject getPolicy();
+		}
+		
+		Entity GocFile{
+    		scaffold
+    		!optimisticLocking
+    		!auditable
+    		Long id key;
+    		String resNum nullable;//资源号 日期加随机数字
+    		String bucket nullable;
+    		String dir nullable;//资源链接 oss上的连接或者目录
+    		String fileName nullable;//资源名
+    		
+    		String title nullable;//文件标题
+    		String descript nullable;//文件描述
+    		String downId nullable;//上传人
+    		
+    		
+    		Repository GocFileRepository{
+				findByCondition;
+				@GocFile findByResNum(String resNum) query="from GocFile where resNum=:resNum";
+    		}
+    	}
+    	Service GocFileService{
+    		String getUrls(String tokens,String resNum);
+    		findByResNum=>GocFileRepository.findByResNum;
+    		cn.com.mymodule.domin.Page<@GocFile> findListByPage(int pageindex, int pagesize);
+    	}
+	}
+
+}

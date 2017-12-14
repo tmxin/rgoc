@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>GOC6文化技术工作室</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+   
+	<!--link href='http://fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'-->
+	<link rel="stylesheet" href="css/animate.min.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">		
+	<link rel="stylesheet" href="css/templatemo-style.css">
+</head>
+<body data-spy="scroll" data-offset="50" data-target=".navbar-collapse">
+	<div class="preloader">
+		<div class="sk-spinner sk-spinner-rotating-plane"></div>
+	</div>
+	<nav class="navbar navbar-fixed-top custom-navbar" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon icon-bar"></span>
+					<span class="icon icon-bar"></span>
+					<span class="icon icon-bar"></span>
+				</button>
+				<a href="#" class="navbar-brand">分享下载</a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#contact" class="smoothScroll">DOWNLOAD</a></li>
+					<li><a href="#divider" class="smoothScroll">注意事项</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- start contact -->
+	<section id="contact">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="wow bounceIn">
+						<h2 class="wow bounceIn">DOWNLOAD</h2>
+						<hr>
+						<h4>
+						剩余次数：<span class="left">-</span>次 ,
+						<span class="time"></span>
+						<a rel="noreferrer"  target="_blank" class="downs"></a></h4>
+					</div>					
+					<div class="col-md-6 col-sm-4 wow fadeIn" data-wow-delay="0.3s">
+						<input type="text" placeholder="秘钥" class="form-control t">
+					</div>
+					<div class="col-md-6 col-sm-4 wow fadeIn" data-wow-delay="0.3s">
+						<input placeholder="资源号" class="form-control n">
+					</div>
+					<div class="col-md-12 col-sm-12 wow fadeIn" data-wow-delay="0.9s">
+						<textarea class="form-control te" rows="5" placeholder="无需填写，生成后的连接会放在这里"></textarea>
+					</div>
+					<div class="col-md-offset-3 col-sm-offset-3 col-sm-6 col-md-6 wow fadeIn" data-wow-delay="0.3s">
+						<input type="submit" value="生成下载链接" class="form-control sub">
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- end contact -->
+	<!-- start divider -->
+	<section id="divider">
+		<div class="divider">
+			<div class="overlay">
+				<div class="container">
+					<div class="row">
+						<div class="divider-des">
+							<h3 class="text-uppercase">下载注意事项</h3>
+							<p>链接：生成在输入域内，方便复制，您也可直接点击“点击这里下载”，</p>
+							<p>秘钥:为客服提供的一段拼音和数字</p>
+							<p>资源号:为下载链接中的末尾的数字，不一定是几位数（如下：）</p>
+							<p>http://download.csdn.net/download/libaier_gc/4128566  资源号为：4128566</p>
+							<p>http://download.csdn.net/download/w23/7389873#comment  资源号为：7389873</p>
+							<p>http://download.csdn.net/index.php/mobile/source/download/4923338/9962306  资源号为9962306</p>
+							<button class="btn btn-default text-uppercase">我们的店铺</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>	
+	<!-- end divider -->
+	
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.flexslider.js"></script>
+	<script src="js/isotope.js"></script>
+	<script src="js/imagesloaded.min.js"></script>
+	<script src="js/smoothscroll.js"></script>
+	<script src="js/wow.min.js"></script>
+	<script src="js/custom.js"></script>
+</body>
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	if(localStorage.getItem("tok")){
+		$('.t').val(localStorage.getItem("tok"));
+	}
+	if(localStorage.getItem("lef")){
+		$(".left").html(localStorage.getItem("lef"));
+	}
+	if(localStorage.getItem("tim")){
+		$(".time").html(localStorage.getItem("tim"));
+	}
+	
+	
+	$(".sub").click(function(){
+		$(".downs").html("");
+		var reg = /^[0-9]*$/;
+		var reg2 = /^[A-Za-z0-9]+$/;
+		if (!reg.test($('.n').val())) {
+			alert("请输入正确资源号")
+		}else if(!reg2.test($('.t').val())){
+			alert("请输入正确token")
+		}else if($('.t').val() && $('.n').val() && $('.t').val()!="" && $('.n').val()!=""){
+			var a = {};
+			a.tokens = $('.t').val();
+			a.num = $('.n').val();
+			
+			localStorage.setItem("tok",$('.t').val());
+			
+			$.ajax({
+		        type: "post",
+		        url:"/a/download",
+		        data: JSON.stringify(a) ,
+		        contentType: "application/json", 
+		        dataType: "json",
+		        async: false,
+		        error: function(request) {
+		            alert("连接超时，请重试");
+		        },
+		        success: function(data) {
+		        	if(data.status == 1 || data.status == 2){
+		        		//$(".r").attr("href",data.url);
+		        		$(".te").val(data.url);
+						$(".downs").attr("href",data.url).html("点击这里下载");
+						
+		        		$(".left").html(data.left);
+		        		
+		        		if(data.time&&data.time!="undefined"){
+		        			$(".time").html("截止时间："+data.time);
+		        		}
+						
+		        		localStorage.setItem("lef",data.left);
+		        		localStorage.setItem("tim","截止时间："+data.time);
+		        	}else if(data.status == 0){
+		        		alert("输入的资源号查询不到资源");
+		        	}else if(data.status == -1){
+		        		alert("使用次数用完了");
+		        	}else if(data.status == -100){
+		        		alert("截至时间到了");
+		        	}else{
+		        		alert("Token不存在,请联系客服");
+		        	}
+		        }
+		    });
+		}else{
+			alert("输入有误请重新输入");
+		}
+		
+	});
+	
+});
+</script>
+</html>

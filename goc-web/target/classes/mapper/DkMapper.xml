@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.demo.dao.DkDAO">
+	<select id="findAll" resultType="com.demo.model.Dk">
+		select * from DK
+	</select>
+	<select id="findByPage" parameterType="map" resultType="com.demo.model.Dk">
+		select * from DK where 1=1 
+		<if test="name != null and '' != name">
+              AND name like '%${name}%'
+        </if>  
+        <!-- if test="year != null and '' != year">
+              AND to_char(to_date(pickGoodDate,'yyyy-mm-dd'),'yyyy')='${year}'
+        </if>  
+            <if test="month != null and '' != month">
+              AND to_char(to_date(pickGoodDate,'yyyy-mm-dd'),'mm')='${month}'
+        </if>  -->
+		<if test="sortname != null and sortname != ''">
+            ORDER BY ${sortname} ${sortorder}
+        </if>
+        limit #{pageindex},#{pagesize}
+	</select>
+	<select id="countByPage" parameterType="map" resultType="int">
+		select count(*) from DK where 1=1 
+		<if test="name != null and '' != name">
+              AND name like '%${name}%'
+        </if>  
+	</select>
+	
+	<insert id="save" parameterType="com.demo.model.Dk" useGeneratedKeys="true" keyProperty="id">
+			insert into DK(hdate,name,je,zje,uuid) 
+		values (#{hdate},#{name},#{je},#{zje},#{uuid})
+	</insert>
+	<update id="update" parameterType="com.demo.model.Dk">  
+        update DK set 
+        <if test="name != null and '' != name">
+              name = #{name},
+        </if>
+         <if test="hdate != null and '' != hdate">
+              hdate = #{hdate},
+        </if>
+        <if test="zje != null and '' != zje">
+              zje = #{zje},
+        </if>
+          <if test="je != null and '' != je">
+              je = #{je}
+        </if>
+        
+        
+        where id = #{id}  
+    </update>
+    <delete id="delete" parameterType="java.lang.Long">  
+        delete from DK where id = #{id}  
+    </delete>
+	
+</mapper>

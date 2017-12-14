@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.demo.dao.ConditionerDAO">
+	<select id="findAll" resultType="com.demo.model.Conditioner">
+		select * from conditioner
+	</select>
+	<select id="findList" resultType="com.demo.model.Conditioner">
+		select * from conditioner
+		<if test="pickGoodDate != null and '' != pickGoodDate">
+            WHERE 1=1  
+            <if test="spec != null and '' != spec">
+              AND spec like '%${spec}%'
+	        </if>  
+	        <if test="accountType != null and '' != accountType">
+	              AND accountType ='${accountType}'
+	        </if>
+	        <if test="pickGoodDate != null and '' != pickGoodDate">
+	              AND pickGoodDate like '%${pickGoodDate}%'
+	        </if>
+            <!-- 
+            and  str_to_date(pickGoodDate, '%Y-%m') <  '%${pickGoodDate}%' or str_to_date(pickGoodDate, '%Y-%m')='%${pickGoodDate}%'+'-00'
+            -->
+        </if>  
+	</select>
+	<select id="findByPage" parameterType="map" resultType="com.demo.model.Conditioner">
+		select * from conditioner where 1=1 
+		<if test="spec != null and '' != spec">
+              AND spec like '%${spec}%'
+        </if>  
+        <if test="accountType != null and '' != accountType">
+              AND accountType ='${accountType}'
+        </if>
+        <if test="pickGoodDate != null and '' != pickGoodDate">
+              AND pickGoodDate like '%${pickGoodDate}%'
+        </if> 
+        <!-- if test="year != null and '' != year">
+              AND to_char(to_date(pickGoodDate,'yyyy-mm-dd'),'yyyy')='${year}'
+        </if>  
+            <if test="month != null and '' != month">
+              AND to_char(to_date(pickGoodDate,'yyyy-mm-dd'),'mm')='${month}'
+        </if>  -->
+		<if test="sortname != null and sortname != ''">
+            ORDER BY ${sortname} ${sortorder}
+        </if>
+        limit #{pageindex},#{pagesize}
+	</select>
+	
+	<select id="countByPage" parameterType="map" resultType="int">
+		select count(*) from conditioner where 1=1 
+		<if test="spec != null and '' != spec">
+              AND spec like '%${spec}%'
+        </if>  
+        <if test="accountType != null and '' != accountType">
+              AND accountType ='${accountType}'
+        </if>
+        <if test="pickGoodDate != null and '' != pickGoodDate">
+              AND pickGoodDate like '%${pickGoodDate}%'
+        </if> 
+	</select>
+	
+	<insert id="save" parameterType="com.demo.model.Conditioner" useGeneratedKeys="true" keyProperty="id">
+		insert into conditioner(pickGoodDate,spec,num,unitPrice,totalPrice,accountType,pt,rebate,uuid) 
+		values (#{pickGoodDate},#{spec},#{num},#{unitPrice},#{totalPrice},#{accountType},#{pt},#{rebate},#{uuid})
+	</insert>
+	<update id="update" parameterType="com.demo.model.Conditioner">  
+        update conditioner set 
+        <if test="pickGoodDate != null and '' != pickGoodDate">
+              pickGoodDate = #{pickGoodDate},
+        </if>
+        <if test="unitPrice != null and '' != unitPrice">
+              unitPrice = #{unitPrice},
+        </if>
+        <if test="spec != null and '' != spec">
+              spec =#{spec},
+        </if>
+        <if test="num != null and '' != num">
+              num =#{num},
+        </if>
+        <if test="totalPrice != null and '' != totalPrice">
+              totalPrice =#{totalPrice},
+        </if>
+        <if test="accountType != null and '' != accountType">
+              accountType =#{accountType},
+        </if>
+        <if test="pt != null and '' != pt">
+              pt =#{pt},
+        </if>
+        <if test="rebate != null and '' != rebate">
+              rebate =#{rebate}
+        </if>
+        
+        where id = #{id}  
+    </update>
+    <delete id="delete" parameterType="java.lang.Long">  
+        delete from conditioner where id = #{id}  
+    </delete>
+	
+</mapper>

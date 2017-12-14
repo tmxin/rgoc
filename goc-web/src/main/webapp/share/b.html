@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Blog Masonry | Triangle</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/lightbox.css" rel="stylesheet"> 
+    <link href="css/animate.min.css" rel="stylesheet"> 
+	<link href="css/main.css" rel="stylesheet">
+	<link href="css/responsive.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+	    <script src="js/html5shiv.js"></script>
+	    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
+
+<body>
+	<header id="header">      
+        <!-- div class="container">
+            <div class="row">
+                <div class="col-sm-12 overflow">
+                   <div class="social-icons pull-right">
+                        <ul class="nav nav-pills">
+                            <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                            <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                            <li><a href=""><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href=""><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href=""><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div> 
+                </div>
+             </div>
+        </div> -->
+        <div class="navbar navbar-inverse" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <a class="navbar-brand" href="index.html">
+                        <h1><img src="images/logo.png" alt="logo"></h1>
+                    </a>
+                    
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class=" active"><a href="./a.html">首页</a></li>
+                        <li class="dropdown"><a href="#">上传</a></li>                    
+                        <li class="dropdown"><a href="blog.html">个人中心</a></li>     
+                        <!-- li class="dropdown active"><a href="blog.html">个人中心<i class="fa fa-angle-down"></i></a>
+                            <ul role="menu" class="sub-menu">
+                                <li><a href="blogtwo.html">Timeline Blog</a></li>
+                                <li><a href="blogone.html">2 Columns + Right Sidebar</a></li>
+                                <li><a href="blogthree.html">1 Column + Left Sidebar</a></li>
+                                <li><a class="active" href="blogfour.html">Blog Masonary</a></li>
+                                <li><a href="blogdetails.html">Blog Details</a></li>
+                            </ul>
+                        </li-->                
+                    </ul>
+                </div>
+                <div class="search">
+                    <form role="form">
+                        <i class="fa fa-search"></i>
+                        <div class="field-toggle">
+                            <input type="text" class="search-form" autocomplete="off" placeholder="Search">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--/#header-->
+    
+    
+    
+    <section id="blog" class="padding-top padding-bottom" style="margin-top:-100px">
+        <div class="container">
+			<div class="col-md-9 col-sm-7">
+		          <div class="contact-form bottom">
+		              <h2>文件上传</h2>
+		              <div id="ossfile">你的浏览器不支持flash,Silverlight或者HTML5！</div>
+		              <div id="container">
+		                  <div class="form-group">
+		                      <input type="text" id="titles" name="name" class="form-control" required="required" placeholder="文件标题">
+		                  </div>
+		                  <div class="form-group">
+		                      <textarea name="message" id="desc" required="required" class="form-control" rows="8" placeholder="文件描述"></textarea>
+		                  </div>                        
+		                  <div class="form-group col-md-6 ">
+		                      <input id="selectfiles" type="choose" name="choose" class="btn btn-submit" value="选择文件">
+		                  </div>
+		                  <div class="form-group col-md-6 ">
+		                      <input id="postfiles" type="submit" name="submit" class="btn btn-submit" value="开始上传">
+		                  </div>
+		              </div>
+		          </div>
+		      </div>
+		      <div class="col-md-3 col-sm-5">
+                    <div class="sidebar blog-sidebar">
+                        <div class="sidebar-item categories">
+                            <h3>我的上传</h3>
+                            <ul class="nav navbar-stacked">
+                                <li><a href="#">Lorem ipsum<span class="pull-right">(1)</span></a></li>
+                                <li class="active"><a href="#">Dolor sit amet<span class="pull-right">(8)</span></a></li>
+                                <li><a href="#">Adipisicing elit<span class="pull-right">(4)</span></a></li>
+                                <li><a href="#">Sed do<span class="pull-right">(9)</span></a></li>
+                                <li><a href="#">Eiusmod<span class="pull-right">(3)</span></a></li>
+                                <li><a href="#">Mockup<span class="pull-right">(4)</span></a></li>
+                                <li><a href="#">Ut enim ad minim <span class="pull-right">(2)</span></a></li>
+                                <li><a href="#">Veniam, quis nostrud <span class="pull-right">(8)</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+	      </div>
+      </section>
+
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/masonry.min.js"></script>
+    
+    <script type="text/javascript" src="../oss/lib/crypto1/crypto/crypto.js"></script>
+	<script type="text/javascript" src="../oss/lib/crypto1/hmac/hmac.js"></script>
+	<script type="text/javascript" src="../oss/lib/crypto1/sha1/sha1.js"></script>
+	<script type="text/javascript" src="../oss/lib/base64.js"></script>
+	<script type="text/javascript" src="../oss/lib/plupload-2.1.2/js/plupload.full.min.js"></script>
+	<script src="../js/jquery.js"></script>
+
+    <script type="text/javascript">
+$(document).ready(function(){
+	localStorage.setItem("tokens","aaa");
+	$.ajax({
+		url: "/goc-web/file/list?pageindex=0&pagesize=100",
+		type:"get",
+		async:true,
+		success: function(data){
+			var datas = data.items;
+			console.log(datas);
+			
+			$.each(datas,function(i,item){
+				$('.uls').append("<li>"+item.fileName+"   "+item.resNum+"</li>");
+			});
+			
+			return datas;
+		}
+	});
+
+
+
+
+
+	var uploader = new plupload.Uploader({
+		runtimes : 'html5,flash,silverlight,html4',
+		browse_button : 'selectfiles', 
+	    //runtimes : 'flash',
+		container: document.getElementById('container'),
+		flash_swf_url : 'lib/plupload-2.1.2/js/Moxie.swf',
+		silverlight_xap_url : 'lib/plupload-2.1.2/js/Moxie.xap',
+	    url : 'http://goc6test.oss-cn-beijing.aliyuncs.com',
+	    multipart_params: {
+			//'Filename': '${filename}', 
+	        'key' : '',
+			'policy': '',
+	        'OSSAccessKeyId': '', 
+	        'success_action_status' : '', //让服务端返回200,不然，默认会返回204
+			'signature': '',
+		}
+	});
+
+	uploader.bind('FilesAdded',function(up, files){
+		var i = 0;
+		plupload.each(files, function(file) {
+			if(i==0){
+				document.getElementById('ossfile').innerHTML = 
+					
+				'<div id="' + file.id + '">' + file.name + ' (' + plupload.formatSize(file.size) + ')<b></b>'
+				+'<div class="progress"><div class="progress-bar progress-bar-success"  role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div></div>'
+				+'</div>';
+			}
+			i++;
+		});
+	});
+	uploader.bind('PostInit',function(){
+		
+	});
+	uploader.bind('UploadProgress',function(up, file) {
+		var d = document.getElementById(file.id);
+		d.getElementsByTagName('b')[0].innerHTML = '<span>' + file.percent + "%</span>";
+	    
+	    var prog = d.getElementsByTagName('div')[0];
+		var progBar = prog.getElementsByTagName('div')[0]
+		progBar.style.width= file.percent+'%';
+		progBar.setAttribute('aria-valuenow', file.percent);
+	});
+	uploader.bind('FileUploaded',function(up, file, info) {
+	    //alert(info.status)
+	    if (info.status >= 200 || info.status < 200)
+	    {
+	        document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = 'success';
+	    }
+	    else
+	    {
+	        document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = info.response;
+	    } 
+	});
+	uploader.bind('Error',function(up, err) {
+		document.getElementById('console').appendChild(document.createTextNode("\nError xml:" + err.response));
+	});
+	uploader.init();
+
+	document.getElementById('ossfile').innerHTML = '';
+	document.getElementById('postfiles').onclick = function() {
+		var sss ;
+		$.ajax({
+			url: "/goc-web/policy?tokens="+localStorage.getItem("tokens"),
+			type:"get",
+			async:false,
+			success: function(data){
+				sss = jQuery.parseJSON(data);
+				return data;
+			}
+		});
+
+		var signature = sss.signature;
+		var host = sss.host;
+		var accessid = sss.accessid;
+		var policyBase64 = sss.policy;//Base64.encode(JSON.stringify(policyText))
+		var fileName = sss.dir;
+
+		var names = "";
+		console.log($('#ossfile').text().split(' ')[0]);
+		$.ajax({
+	        url : "/goc-web/file/upload/",
+	        type : "POST",
+	        async: false,
+	        contentType: "application/json;charset=utf-8",
+	        data : JSON.stringify({'fileName':$('#ossfile').text().split(' ')[0],
+	        	"titles":$('#titles').val(),
+	        	"tokens":localStorage.getItem("tokens"),
+	        	"desc":$('#desc').val()}),
+	        dataType : "text",
+	        success : function(result) {
+	        	console.log("成功");
+	        	console.log(result);
+	        	names = result;
+	        	return result;
+	        },
+	        error:function(msg){
+	        	console.log(msg);
+	        }
+	    })
+		console.log("Name:"+names);
+		uploader.settings.multipart_params.key = fileName+'/'+names;
+		uploader.settings.multipart_params.policy = policyBase64;
+		uploader.settings.multipart_params.OSSAccessKeyId = accessid;
+		uploader.settings.multipart_params.success_action_status = '200';
+		uploader.settings.multipart_params.signature = signature;
+		
+		/*
+		multipart_params: {
+			//'Filename': '${filename}', 
+	        'key' : fileName+'/'+'${filename}',
+			'policy': policyBase64,
+	        'OSSAccessKeyId': accessid, 
+	        'success_action_status' : '200', //让服务端返回200,不然，默认会返回204
+			'signature': signature,
+		}*/
+		uploader.start();
+		return false;
+	};
+
+	
+});    
+    </script>
+</body>
+</html>

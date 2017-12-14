@@ -1,0 +1,21 @@
+Application MyApp {
+    basePackage=cn.com
+
+    Module mymodule {
+    	Entity ProjectGroup{
+    		databaseTable="OPS_PROJECT_GROUP"
+    		scaffold
+    		String	a nullable;
+    		String	b nullable;
+    		String 	c nullable;
+    		String 	d nullable;
+    		Repository ProjectGroupRepository{
+				findByExA();
+    		}
+    	}
+		Service ProjectGroupService{
+			findByEx();
+		}
+	}
+
+}

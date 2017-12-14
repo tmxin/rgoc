@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.demo.dao.StatsDAO">
+	<select id="findAll" resultType="com.demo.model.Stats">
+		select * from Stats
+	</select>
+	<select id="findLeft" resultType="double">
+		select sum(s.account*(s.inOrOut - 1/2)*2) from Stats s where s.name='DK' or s.name='ConOut'
+	</select>
+	<select id="findByPage" parameterType="map" resultType="com.demo.model.Stats">
+		select * from Stats where 1=1 
+		<if test="name != null and '' != name">
+              AND name = '${name}'
+        </if>
+        <if test="inOrOut != null">
+              AND inOrOut ='${inOrOut}'
+        </if>
+        <if test="dealDate != null and '' != dealDate">
+              AND dealDate like '%${dealDate}%'
+        </if>
+        <if test="uuid != null">
+              AND uuid ='${uuid}'
+        </if>
+        <!-- if test="year != null and '' != year">
+              AND to_char(to_date(pickGoodDate,'yyyy-mm-dd'),'yyyy')='${year}'
+        </if>  
+            <if test="month != null and '' != month">
+              AND to_char(to_date(pickGoodDate,'yyyy-mm-dd'),'mm')='${month}'
+        </if>  -->
+		<if test="sortname != null and sortname != ''">
+            ORDER BY ${sortname} ${sortorder}
+        </if>
+        limit #{pageindex},#{pagesize}
+	</select>
+	<select id="countByPage" parameterType="map" resultType="int">
+		select count(*) from Stats where 1=1 
+		<if test="name != null and '' != name">
+              AND name = '${name}'
+        </if>
+        <if test="inOrOut != null">
+              AND inOrOut ='${inOrOut}'
+        </if>
+        <if test="dealDate != null and '' != dealDate">
+              AND dealDate like '%${dealDate}%'
+        </if>
+        <if test="uuid != null">
+              AND uuid ='${uuid}'
+        </if>
+	</select>
+	<select id="findAllByStat" parameterType="map" resultType="com.demo.model.Stats">
+		select * from Stats where 1=1 
+		<if test="name != null and '' != name">
+              AND name = '${name}'
+        </if>
+        <if test="inOrOut != null">
+              AND inOrOut ='${inOrOut}'
+        </if>
+        <if test="dealDate != null and '' != dealDate">
+              AND dealDate like '%${dealDate}%'
+        </if>
+        <if test="uuid != null">
+              AND uuid ='${uuid}'
+        </if>
+	</select>
+	<insert id="save" parameterType="com.demo.model.Stats" useGeneratedKeys="true" keyProperty="id">
+			insert into Stats(dealDate,name,account,inOrOut,typeId,uuid) 
+		values (#{dealDate},#{name},#{account},#{inOrOut},#{typeId},#{uuid})
+	</insert>
+	<update id="update" parameterType="com.demo.model.Stats">  
+        update Stats set 
+        <if test="name != null and '' != name">
+              name = #{name},
+        </if>
+        <if test="account != null and '' != account">
+              account = #{account},
+        </if>
+        <if test="inOrOut != null and '' != inOrOut">
+              inOrOut =#{inOrOut},
+        </if>
+        <if test="dealDate != null and '' != dealDate">
+              dealDate = #{dealDate},
+        </if>
+        <if test="uuid != null and '' != uuid">
+              uuid =#{uuid}
+        </if>
+        where id = #{id}  
+    </update>
+    <delete id="delete" parameterType="java.lang.String">  
+        delete from Stats where uuid = #{uuid}  
+    </delete>
+	
+</mapper>

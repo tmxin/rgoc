@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	<title>OSS web直传</title>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body>
+
+<h2>r.goc6.com 资源分享下载站</h2>
+<ol>
+<li>优化架构，文件目录结构 </li>
+<li>添加文件描述等信息</li>
+<li>添加密钥等等信息</li>
+<li>文件列表迫在眉睫</li>
+<li>还有搜索和个人文件等等</li>
+<li>现在的数据都是测试数据</li>
+<li>数据存储结构要不断的优化</li>
+<li>流程要顺下来然后提交到公网上</li>
+<li>内部人员先试用下然后再公开</li>
+<li>暂时就先这样比较好了</li>
+</ol>
+<ol class="uls">
+</ol>
+<br>
+
+<h4>您所选择的文件列表：</h4>
+<div id="ossfile">你的浏览器不支持flash,Silverlight或者HTML5！</div>
+
+<br/>
+
+<div id="container">
+文件标题：<input type="text" id="titles"/><br>
+文件描述：<textarea id="desc"></textarea><br>
+	<a id="selectfiles" href="javascript:void(0);" class='btn'>选择文件</a>
+	<a id="postfiles" href="javascript:void(0);" class='btn'>开始上传</a>
+</div>
+
+<pre id="console"></pre>
+
+<p>&nbsp;</p>
+<input type="text" id="nums"/>
+<a id="downLoads" href="javascript:void(0);" class='btn'>开始下载</a>
+<a id="downUrl" href=""></a>
+</body>
+
+<script type="text/javascript" src="lib/crypto1/crypto/crypto.js"></script>
+<script type="text/javascript" src="lib/crypto1/hmac/hmac.js"></script>
+<script type="text/javascript" src="lib/crypto1/sha1/sha1.js"></script>
+<script type="text/javascript" src="lib/base64.js"></script>
+<script type="text/javascript" src="lib/plupload-2.1.2/js/plupload.full.min.js"></script>
+<script src="../js/jquery.js"></script>
+<script type="text/javascript" src="upload.js"></script>
+</html>
